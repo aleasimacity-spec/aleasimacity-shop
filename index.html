@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مدينة العاصمة ترحب بكم</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Cairo", sans-serif;
+        background: url('https://images.pexels.com/photos/33647847/pexels-photo-33647847.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        overflow-x: hidden;
+        color: #fff;
+        height: 100%;
+    }
+    .content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+        font-family: 'Cairo', sans-serif;
+        margin-top: 90px;
+    }
+    .box {
+        background: rgba(0, 0, 0, 0.45);
+        padding: 40px 45px;
+        margin: 60px auto 40px auto;
+        border-radius: 22px;
+        width: 460px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1.4s ease forwards;
+        opacity: 0;
+        box-shadow: 0 0 30px #a85bffaa;
+        position: relative;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(25px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+        width: 140px;
+        margin-bottom: 15px;
+        animation: logoFloat 4s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+    }
+    h1 {
+        font-size: 27px;
+        margin-bottom: 12px;
+        color: white;
+    }
+    p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        color: #eee;
+    }
+    .btns {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        border: none;
+        transition: .2s;
+    }
+    .btn-primary {
+        background: #b46aff;
+        color: white;
+        box-shadow: 0 0 10px #b46affaa;
+    }
+    .btn-primary:hover {
+        background: #c88cff;
+    }
+    .btn-outline {
+        background: transparent;
+        border: 1px solid #b46aff;
+        color: #dcbfff;
+    }
+    .btn-outline:hover {
+        background: #b46aff;
+        color: white;
+        box-shadow: 0 0 10px #b46affaa;
+    }
+    .btn-sound {
+        background: #FF647C;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 20px;
+        margin-top: 12px;
+        cursor: pointer;
+        font-size: 15px;
+        box-shadow: 0 0 8px #FF647Ca0;
+        transition: background .2s;
+    }
+    .btn-sound:hover {
+        background: #ff3062;
+    }
+    .sound-credit {
+        text-align:center;
+        color:#ccc;
+        margin-top:8px;
+        font-size:13px;
+    }
+    .rules {
+        width: 85%;
+        margin: 40px auto 80px auto;
+        background: rgba(0,0,0,0.45);
+        padding: 35px;
+        border-radius: 18px;
+        backdrop-filter: blur(8px);
+        color: white;
+        box-shadow: 0 0 25px #00000080;
+        text-align: right;
+    }
+    .rules h2 {
+        color: #c78aff;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 23px;
+        position: relative;
+    }
+    .rules hr {
+        border: 0;
+        border-top: 2px solid #c78aff;
+        margin: 10px 0 20px 0;
+    }
+    .rules h3 {
+        color: #b46aff;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    a {
+        color: #9d70ff;
+    }
+</style>
+</head>
+<body>
+<div class="content">
+    <div class="box">
+        <img class="logo" src="https://i.imgur.com/T4kk4Kj.png" alt="شعار مدينة العاصمة">
+        <h1>مدينة العاصمة ترحب بكم</h1>
+        <p>الرجاء قراءة القوانين جيدًا قبل دخول المدينة والالتزام بها داخل السيرفر والديسكورد المرتبط.</p>
+        <div class="btns">
+            <button class="btn btn-primary" style="background:#4CAF50; box-shadow: 0 0 10px #4CAF50aa;" onclick="enterStore()">دخول المتجر</button>
+            <button class="btn btn-primary" onclick="scrollToRules()">عرض القوانين</button>
+            <button class="btn btn-outline" onclick="location.reload()">تحديث</button>
+            <button class="btn btn-primary" onclick="enterCity()">دخول المدينة</button>
+        </div>
+        <button class="btn-sound" id="toggleSoundBtn" onclick="toggleSound()">إيقاف الصوت</button>
+        <audio id="welcomeSound" src="https://cdn.pixabay.com/audio/2023/04/18/audio_1353e6099c.mp3" loop></audio>
+        <p class="sound-credit">
+            Sound Effect by
+            <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=165984" style="color:#9d70ff;" target="_blank">Universfield</a>
+            from
+            <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=165984" style="color:#9d70ff;" target="_blank">Pixabay</a>
+        </p>
+    </div>
+
+    <div class="rules" id="rules">
+        <h2>قوانين متجر مدينة العاصمة</h2>
+        <hr>
+
+        <h3>1. بنود السيرفر والحظر</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            إذا تم حظرك من السيرفر بسبب مخالفة، لا يحق لك استرداد أي مبالغ مدفوعة.<br>
+            الإدارة لها الحق في تصفير وحظر الحساب نهائيًا.<br>
+            يمكن الاعتراض خلال 7 أيام عمل عبر فتح تذكرة في ديسكورد.<br>
+            الحظر يشمل الأفعال مثل السب، الشتم، التشهير، المضايقة، استغلال الثغرات، وغيرها.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>2. استعمال مواد الغش</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            بعد شراء منتج يسمح بالاستعمال، لا يمكن استرداد المال أو المطالبة بتعويض بعد تنفيذ العقوبة.<br>
+            يتم تصفير الحساب وسحب جميع الممتلكات نهائيًا.<br>
+            أي خلافات تتم عبر تذكرة في ديسكورد.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>3. سياسة الاسترجاع والاستبدال</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            الاسترجاع أو الاستبدال فقط إذا كان المنتج مختلفًا عن الوصف أو فيه خلل.<br>
+            يجب تقديم دليل خلال 5 أيام عمل.<br>
+            لا يتم الاستبدال بسبب اختلاف الذوق أو تغيير الرأي.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>4. مسؤوليات متجر مدينة العاصمة والعميل</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            مسؤولية المتجر تنتهي بعد تسليم كود المنتج بشكل صحيح.<br>
+            العميل مسؤول عن صحة بياناته (رقم الجوال، البريد الإلكتروني).<br>
+            المتجر غير مسؤول عن الاستخدام الخاطئ للمنتج بعد الشراء.<br>
+            أي مشكلة تُحل حصريًا عبر فتح تذكرة في ديسكورد.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>5. الطلبات والدفع</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            لا يمكن إلغاء الطلب بعد الدفع إلا في حالات استثنائية.<br>
+            الدفع يتم عبر وسائل آمنة، والمتجر لا يحتفظ بالمعلومات البنكية.<br>
+            للمتجر الحق في رفض أو إلغاء أي طلب لأسباب مثل توفر المخزون أو خطأ في التسعير.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>6. عرض المنتجات</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            الصور توضيحية وقد يختلف اللون قليلاً.<br>
+            المنتجات تُعرض حسب الكمية المتوفرة، وقد يُلغى الطلب مع استرجاع المبلغ إذا نفدت الكمية.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>7. البيانات والخصوصية</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            لا مشاركة أو بيع بيانات العملاء.<br>
+            الصور والتصاميم ملكية المتجر، لا يجوز استخدامها دون إذن.<br>
+            التعليقات المسيئة أو المضللة يمكن حذفها.<br>
+            الطلبات المتكررة بشكل غير منطقي قد تؤدي لحظر الحساب.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>8. الشكاوى</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            تُقبل الشكاوى خلال 7 أيام عمل مع تقديم دليل. بعد ذلك لا يتم النظر فيها.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>9. طبيعة المنتجات</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            المنتجات رقمية وترفيهية، لا تمثل الواقع.<br>
+            ممنوع الاستخدام التجاري أو القانوني خارج الترفيه الشخصي.<br>
+            المتجر لا يقدم ضمانات فنية أو قانونية، ويقتصر الاستخدام على الترفيه.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+
+        <h3>10. التعديلات</h3>
+        <hr style="border-top: 1px solid #9d70ff; margin-bottom:10px;">
+        <p>
+            للمتجر الحق في تعديل الشروط متى شاء.<br>
+            القوانين تخضع لأنظمة المملكة العربية السعودية، والاختصاص للمحاكم المختصة.
+        </p>
+        <button class="btn btn-outline" onclick="scrollToTop()" style="margin-bottom:20px;">الرجوع لأعلى</button>
+    </div>
+</div>
+
+<script>
+let soundOn = true;
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("welcomeSound");
+    audio.volume = 0.15;
+    audio.play().catch(()=>{});
+    updateSoundBtn();
+});
+function scrollToRules() {
+    document.getElementById("rules").scrollIntoView({ behavior: "smooth" });
+}
+function enterCity() {
+    window.location.href = "https://cfx.re/join/ze4z55";
+}
+function enterStore() {
+    window.location.href = "https://aleasima-city.tebex.io/"; // رابط المتجر
+}
+function toggleSound() {
+    const audio = document.getElementById("welcomeSound");
+    if (audio.paused) {
+        audio.play().catch(()=>{});
+        soundOn = true;
+    } else {
+        audio.pause();
+        soundOn = false;
+    }
+    updateSoundBtn();
+}
+function updateSoundBtn() {
+    const btn = document.getElementById("toggleSoundBtn");
+    btn.textContent = soundOn ? "إيقاف الصوت" : "تشغيل الصوت";
+}
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
